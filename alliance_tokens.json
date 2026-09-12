@@ -1,0 +1,20 @@
+[
+  {"race":"elves","id":1,"name":"Yellow extra turn","persistent":[{"type":"on_card_played","color":"yellow","effect":{"type":"take_extra_turn"}}]},
+  {"race":"elves","id":2,"name":"Red deployment anywhere","persistent":[{"type":"red_deployment_anywhere"}]},
+  {"race":"elves","id":3,"name":"Any Skill","persistent":[{"type":"any_skill_once_per_turn"}]},
+  {"race":"dwarves","id":1,"name":"Landmark surcharge waiver","persistent":[{"type":"waive_landmark_fortress_cost"}]},
+  {"race":"dwarves","id":2,"name":"Landmark extra turn","persistent":[{"type":"on_landmark_taken","effect":{"type":"take_extra_turn"}}]},
+  {"race":"dwarves","id":3,"name":"Green movements","persistent":[{"type":"on_card_played","color":"green","effect":{"type":"move_units","amount":2}}]},
+  {"race":"hobbits","id":1,"name":"Eagle","persistent":[{"type":"eagle_race_symbol"}]},
+  {"race":"hobbits","id":2,"name":"Blue Unit","persistent":[{"type":"on_card_played","color":"blue","effect":{"type":"place_units_anywhere","amount":1}}]},
+  {"race":"hobbits","id":3,"name":"Chain coins","persistent":[{"type":"on_chained_card_played","effect":{"type":"gain_coins","amount":3}}]},
+  {"race":"humans","id":1,"name":"Yellow quest","persistent":[{"type":"on_card_played","color":"yellow","effect":{"type":"advance_quest","spaces":1}}]},
+  {"race":"humans","id":2,"name":"Additional Red Unit","persistent":[{"type":"additional_red_units","amount":1}]},
+  {"race":"humans","id":3,"name":"Double discard income","persistent":[{"type":"discard_income_multiplier","multiplier":2}]},
+  {"race":"ents","id":1,"name":"Extra turn","immediate":[{"type":"take_extra_turn"}]},
+  {"race":"ents","id":2,"name":"Remove Fortress","immediate":[{"type":"remove_enemy_fortress"}]},
+  {"race":"ents","id":3,"name":"Three maneuvers","immediate":[{"type":"choose_maneuvers","times":3}]},
+  {"race":"wizards","id":1,"name":"Quest advance","immediate":[{"type":"advance_quest","spaces":2}]},
+  {"race":"wizards","id":2,"name":"Two Units","immediate":[{"type":"place_units_anywhere","amount":2}]},
+  {"race":"wizards","id":3,"name":"Free discarded card","immediate":[{"type":"play_discarded_card_for_free"}]}
+]

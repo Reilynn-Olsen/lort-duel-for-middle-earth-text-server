@@ -1,0 +1,8 @@
+[
+  {"id":"chapter1_card_01","chapter":1,"color":"grey","cost":{"coins":0,"skills":{},"chain":null},"provides_chain":null,"provides":{"skills":{"ruse":1},"race":null},"effects":[]},
+  {"id":"chapter1_card_02","chapter":1,"color":"grey","cost":{"coins":0,"skills":{},"chain":null},"provides_chain":null,"provides":{"skills":{"strength":1},"race":null},"effects":[]},
+  {"id":"chapter1_card_03","chapter":1,"color":"grey","cost":{"coins":0,"skills":{},"chain":null},"provides_chain":null,"provides":{"skills":{"courage":1},"race":null},"effects":[]},
+  {"id":"chapter1_card_04","chapter":1,"color":"grey","cost":{"coins":0,"skills":{},"chain":null},"provides_chain":null,"provides":{"skills":{"knowledge":1},"race":null},"effects":[]},
+  {"id":"chapter1_card_05","chapter":1,"color":"grey","cost":{"coins":0,"skills":{},"chain":null},"provides_chain":null,"provides":{"skills":{"leadership":1},"race":null},"effects":[]},
+  {"id":"chapter1_card_06","chapter":1,"color":"yellow","cost":{"coins":0,"skills":{},"chain":null},"provides_chain":null,"provides":{"skills":{},"race":null},"effects":[{"type":"gain_coins","amount":2}]}
+]

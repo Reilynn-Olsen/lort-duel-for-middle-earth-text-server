@@ -1,0 +1,1571 @@
+[
+  {
+    "id": "chapter1_card_01",
+    "chapter": 1,
+    "color": "grey",
+    "cost": {
+      "coins": 0,
+      "skills": {},
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {
+        "ruse": 1
+      },
+      "race": null
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter1_card_02",
+    "chapter": 1,
+    "color": "grey",
+    "cost": {
+      "coins": 0,
+      "skills": {},
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {
+        "ruse": 1
+      },
+      "race": null
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter1_card_03",
+    "chapter": 1,
+    "color": "grey",
+    "cost": {
+      "coins": 0,
+      "skills": {},
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {
+        "courage": 1
+      },
+      "race": null
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter1_card_04",
+    "chapter": 1,
+    "color": "grey",
+    "cost": {
+      "coins": 0,
+      "skills": {},
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {
+        "courage": 1
+      },
+      "race": null
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter1_card_05",
+    "chapter": 1,
+    "color": "grey",
+    "cost": {
+      "coins": 0,
+      "skills": {},
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {
+        "strength": 1
+      },
+      "race": null
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter1_card_06",
+    "chapter": 1,
+    "color": "grey",
+    "cost": {
+      "coins": 0,
+      "skills": {},
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {
+        "strength": 1
+      },
+      "race": null
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter1_card_07",
+    "chapter": 1,
+    "color": "grey",
+    "cost": {
+      "coins": 0,
+      "skills": {},
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {
+        "knowledge": 1
+      },
+      "race": null
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter1_card_08",
+    "chapter": 1,
+    "color": "grey",
+    "cost": {
+      "coins": 0,
+      "skills": {},
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {
+        "leadership": 1
+      },
+      "race": null
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter1_card_09",
+    "chapter": 1,
+    "color": "yellow",
+    "cost": {
+      "coins": 0,
+      "skills": {},
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "gain_coins",
+        "amount": 2
+      }
+    ]
+  },
+  {
+    "id": "chapter1_card_10",
+    "chapter": 1,
+    "color": "yellow",
+    "cost": {
+      "coins": 0,
+      "skills": {},
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "gain_coins",
+        "amount": 2
+      }
+    ]
+  },
+  {
+    "id": "chapter1_card_11",
+    "chapter": 1,
+    "color": "yellow",
+    "cost": {
+      "coins": 0,
+      "skills": {},
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "gain_coins",
+        "amount": 2
+      }
+    ]
+  },
+  {
+    "id": "chapter1_card_12",
+    "chapter": 1,
+    "color": "yellow",
+    "cost": {
+      "coins": 0,
+      "skills": {},
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "gain_coins",
+        "amount": 2
+      }
+    ]
+  },
+  {
+    "id": "chapter1_card_13",
+    "chapter": 1,
+    "color": "blue",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "strength": 1
+      },
+      "chain": null
+    },
+    "provides_chain": "horse",
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "advance_quest",
+        "spaces": 1
+      }
+    ]
+  },
+  {
+    "id": "chapter1_card_14",
+    "chapter": 1,
+    "color": "blue",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "courage": 1
+      },
+      "chain": null
+    },
+    "provides_chain": "backpack",
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "advance_quest",
+        "spaces": 1
+      }
+    ]
+  },
+  {
+    "id": "chapter1_card_15",
+    "chapter": 1,
+    "color": "blue",
+    "cost": {
+      "coins": 1,
+      "skills": {},
+      "chain": null
+    },
+    "provides_chain": "fish",
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "advance_quest",
+        "spaces": 1
+      }
+    ]
+  },
+  {
+    "id": "chapter1_card_16",
+    "chapter": 1,
+    "color": "blue",
+    "cost": {
+      "coins": 0,
+      "skills": {},
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "advance_quest",
+        "spaces": 1
+      }
+    ]
+  },
+  {
+    "id": "chapter1_card_17",
+    "chapter": 1,
+    "color": "green",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "knowledge": 1
+      },
+      "chain": null
+    },
+    "provides_chain": "horseshoe",
+    "provides": {
+      "skills": {},
+      "race": "humans"
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter1_card_18",
+    "chapter": 1,
+    "color": "green",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "leadership": 1
+      },
+      "chain": null
+    },
+    "provides_chain": "pot",
+    "provides": {
+      "skills": {},
+      "race": "hobbits"
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter1_card_19",
+    "chapter": 1,
+    "color": "green",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "leadership": 1
+      },
+      "chain": null
+    },
+    "provides_chain": "anvil",
+    "provides": {
+      "skills": {},
+      "race": "dwarves"
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter1_card_20",
+    "chapter": 1,
+    "color": "green",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "knowledge": 1
+      },
+      "chain": null
+    },
+    "provides_chain": "harp",
+    "provides": {
+      "skills": {},
+      "race": "elves"
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter1_card_21",
+    "chapter": 1,
+    "color": "red",
+    "cost": {
+      "coins": 0,
+      "skills": {},
+      "chain": null
+    },
+    "provides_chain": "cross-bow",
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "place_units",
+        "amount": 1,
+        "regions": ["gondor", "rohan"],
+        "choose": 1
+      }
+    ]
+  },
+  {
+    "id": "chapter1_card_22",
+    "chapter": 1,
+    "color": "red",
+    "cost": {
+      "coins": 0,
+      "skills": {},
+      "chain": null
+    },
+    "provides_chain": "helmet",
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "place_units",
+        "amount": 1,
+        "regions": ["enedwaith", "rhovanion"],
+        "choose": 1
+      }
+    ]
+  },
+  {
+    "id": "chapter1_card_23",
+    "chapter": 1,
+    "color": "red",
+    "cost": {
+      "coins": 0,
+      "skills": {},
+      "chain": null
+    },
+    "provides_chain": "sword",
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "place_units",
+        "amount": 1,
+        "regions": ["lindon", "arnor"],
+        "choose": 1
+      }
+    ]
+  },
+  {
+    "id": "chapter2_card_01",
+    "chapter": 2,
+    "color": "grey",
+    "cost": {
+      "coins": 1,
+      "skills": {
+        "leadership": 1,
+        "knowledge": 1
+      },
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null,
+      "skills_any_of": [
+        {
+          "ruse": 1
+        },
+        {
+          "strength": 1
+        },
+        {
+          "courage": 1
+        }
+      ]
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter2_card_02",
+    "chapter": 2,
+    "color": "grey",
+    "cost": {
+      "coins": 1,
+      "skills": {
+        "ruse": 1
+      },
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null,
+      "skills_any_of": [
+        {
+          "knowledge": 1
+        },
+        {
+          "leadership": 1
+        }
+      ]
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter2_card_03",
+    "chapter": 2,
+    "color": "grey",
+    "cost": {
+      "coins": 1,
+      "skills": {},
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {
+        "ruse": 2
+      },
+      "race": null
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter2_card_04",
+    "chapter": 2,
+    "color": "grey",
+    "cost": {
+      "coins": 1,
+      "skills": {},
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {
+        "strength": 2
+      },
+      "race": null
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter2_card_05",
+    "chapter": 2,
+    "color": "grey",
+    "cost": {
+      "coins": 1,
+      "skills": {},
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {
+        "courage": 2
+      },
+      "race": null
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter2_card_06",
+    "chapter": 2,
+    "color": "grey",
+    "cost": {
+      "coins": 0,
+      "skills": {},
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {
+        "leadership": 1
+      },
+      "race": null
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter2_card_07",
+    "chapter": 2,
+    "color": "grey",
+    "cost": {
+      "coins": 0,
+      "skills": {},
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {
+        "knowledge": 1
+      },
+      "race": null
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter2_card_08",
+    "chapter": 2,
+    "color": "yellow",
+    "cost": {
+      "coins": 0,
+      "skills": {},
+      "chain": null
+    },
+    "provides_chain": "chest",
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "gain_coins",
+        "amount": 3
+      }
+    ]
+  },
+  {
+    "id": "chapter2_card_09",
+    "chapter": 2,
+    "color": "yellow",
+    "cost": {
+      "coins": 0,
+      "skills": {},
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "gain_coins",
+        "amount": 4
+      }
+    ]
+  },
+  {
+    "id": "chapter2_card_10",
+    "chapter": 2,
+    "color": "blue",
+    "cost": {
+      "coins": 1,
+      "skills": {},
+      "chain": "backpack"
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "advance_quest",
+        "spaces": 1
+      }
+    ]
+  },
+  {
+    "id": "chapter2_card_11",
+    "chapter": 2,
+    "color": "blue",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "courage": 1,
+        "strength": 1
+      },
+      "chain": "horse"
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "advance_quest",
+        "spaces": 1
+      }
+    ]
+  },
+  {
+    "id": "chapter2_card_12",
+    "chapter": 2,
+    "color": "blue",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "strength": 1,
+        "courage": 2
+      },
+      "chain": null
+    },
+    "provides_chain": "campfire",
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "advance_quest",
+        "spaces": 2
+      }
+    ]
+  },
+  {
+    "id": "chapter2_card_13",
+    "chapter": 2,
+    "color": "blue",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "strength": 2,
+        "knowledge": 1
+      },
+      "chain": null
+    },
+    "provides_chain": "sleeping-bag",
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "advance_quest",
+        "spaces": 2
+      }
+    ]
+  },
+  {
+    "id": "chapter2_card_14",
+    "chapter": 2,
+    "color": "blue",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "ruse": 1,
+        "strength": 1
+      },
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "advance_quest",
+        "spaces": 1
+      }
+    ]
+  },
+  {
+    "id": "chapter2_card_15",
+    "chapter": 2,
+    "color": "green",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "courage": 2,
+        "knowledge": 1
+      },
+      "chain": "horseshoe"
+    },
+    "provides_chain": "acorn",
+    "provides": {
+      "skills": {},
+      "race": "humans"
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter2_card_16",
+    "chapter": 2,
+    "color": "green",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "strength": 2,
+        "leadership": 1
+      },
+      "chain": "anvil"
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": "dwarves"
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter2_card_17",
+    "chapter": 2,
+    "color": "green",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "ruse": 2,
+        "leadership": 1
+      },
+      "chain": "pot"
+    },
+    "provides_chain": "scroll",
+    "provides": {
+      "skills": {},
+      "race": "hobbits"
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter2_card_18",
+    "chapter": 2,
+    "color": "green",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "courage": 1,
+        "leadership": 1,
+        "knowledge": 1
+      },
+      "chain": "harp"
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": "elves"
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter2_card_19",
+    "chapter": 2,
+    "color": "red",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "strength": 2,
+        "courage": 1
+      },
+      "chain": "helmet"
+    },
+    "provides_chain": "armor",
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "place_units",
+        "amount": 2,
+        "regions": ["lindon", "enedwaith"],
+        "choose": 1
+      }
+    ]
+  },
+  {
+    "id": "chapter2_card_20",
+    "chapter": 2,
+    "color": "red",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "ruse": 2,
+        "knowledge": 1
+      },
+      "chain": "sword"
+    },
+    "provides_chain": "axe",
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "place_units",
+        "amount": 2,
+        "regions": ["mordor", "rohan"],
+        "choose": 1
+      }
+    ]
+  },
+  {
+    "id": "chapter2_card_21",
+    "chapter": 2,
+    "color": "red",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "ruse": 3
+      },
+      "chain": "cross-bow"
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "place_units",
+        "amount": 2,
+        "regions": ["gondor", "mordor"],
+        "choose": 1
+      }
+    ]
+  },
+  {
+    "id": "chapter2_card_22",
+    "chapter": 2,
+    "color": "red",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "ruse": 1,
+        "strength": 1,
+        "courage": 1
+      },
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "place_units",
+        "amount": 2,
+        "regions": ["lindon", "rohan"],
+        "choose": 1
+      }
+    ]
+  },
+  {
+    "id": "chapter2_card_23",
+    "chapter": 2,
+    "color": "red",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "courage": 2,
+        "leadership": 1
+      },
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "place_units",
+        "amount": 2,
+        "regions": ["arnor", "rhovanion"],
+        "choose": 1
+      }
+    ]
+  },
+  {
+    "id": "chapter3_card_01",
+    "chapter": 3,
+    "color": "yellow",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "ruse": 2,
+        "courage": 1
+      },
+      "chain": "chest"
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "gain_coins",
+        "amount": 5
+      }
+    ]
+  },
+  {
+    "id": "chapter3_card_02",
+    "chapter": 3,
+    "color": "yellow",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "ruse": 1,
+        "leadership": 1,
+        "knowledge": 1
+      },
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "gain_coins",
+        "amount": 2
+      }
+    ]
+  },
+  {
+    "id": "chapter3_card_03",
+    "chapter": 3,
+    "color": "blue",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "ruse": 1,
+        "strength": 3
+      },
+      "chain": "campfire"
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "advance_quest",
+        "spaces": 2
+      }
+    ]
+  },
+  {
+    "id": "chapter3_card_04",
+    "chapter": 3,
+    "color": "blue",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "ruse": 2,
+        "courage": 2
+      },
+      "chain": "fish"
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "advance_quest",
+        "spaces": 2
+      }
+    ]
+  },
+  {
+    "id": "chapter3_card_05",
+    "chapter": 3,
+    "color": "blue",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "ruse": 3,
+        "courage": 1
+      },
+      "chain": "sleeping-bag"
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "advance_quest",
+        "spaces": 2
+      }
+    ]
+  },
+  {
+    "id": "chapter3_card_06",
+    "chapter": 3,
+    "color": "blue",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "strength": 2,
+        "leadership": 1
+      },
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "advance_quest",
+        "spaces": 2
+      }
+    ]
+  },
+  {
+    "id": "chapter3_card_07",
+    "chapter": 3,
+    "color": "blue",
+    "cost": {
+      "coins": 3,
+      "skills": {},
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "advance_quest",
+        "spaces": 3
+      }
+    ]
+  },
+  {
+    "id": "chapter3_card_08",
+    "chapter": 3,
+    "color": "green",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "ruse": 2,
+        "leadership": 2
+      },
+      "chain": "scroll"
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": "wizards"
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter3_card_09",
+    "chapter": 3,
+    "color": "green",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "strength": 2,
+        "leadership": 1,
+        "knowledge": 1
+      },
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": "wizards"
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter3_card_10",
+    "chapter": 3,
+    "color": "green",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "strength": 2,
+        "knowledge": 2
+      },
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": "ents"
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter3_card_11",
+    "chapter": 3,
+    "color": "green",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "strength": 2,
+        "leadership": 1,
+        "knowledge": 1
+      },
+      "chain": "acorn"
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": "ents"
+    },
+    "effects": []
+  },
+  {
+    "id": "chapter3_card_12",
+    "chapter": 3,
+    "color": "red",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "strength": 2,
+        "courage": 2
+      },
+      "chain": "armor"
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "place_units",
+        "amount": 3,
+        "regions": ["enedwaith", "rohan"],
+        "choose": 1
+      }
+    ]
+  },
+  {
+    "id": "chapter3_card_13",
+    "chapter": 3,
+    "color": "red",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "ruse": 1,
+        "strength": 1,
+        "leadership": 2,
+        "knowledge": 1
+      },
+      "chain": "axe"
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "place_units",
+        "amount": 3,
+        "regions": ["gondor", "arnor"],
+        "choose": 1
+      }
+    ]
+  },
+  {
+    "id": "chapter3_card_14",
+    "chapter": 3,
+    "color": "red",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "ruse": 1,
+        "strength": 2,
+        "courage": 2
+      },
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "place_units",
+        "amount": 3,
+        "regions": ["rhovanion", "mordor"],
+        "choose": 1
+      }
+    ]
+  },
+  {
+    "id": "chapter3_card_15",
+    "chapter": 3,
+    "color": "red",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "ruse": 2,
+        "courage": 1,
+        "knowledge": 2
+      },
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "place_units",
+        "amount": 3,
+        "regions": ["lindon", "mordor"],
+        "choose": 1
+      }
+    ]
+  },
+  {
+    "id": "chapter3_card_16",
+    "chapter": 3,
+    "color": "red",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "ruse": 3,
+        "leadership": 2
+      },
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "place_units",
+        "amount": 3,
+        "regions": ["rhovanion", "gondor"],
+        "choose": 1
+      }
+    ]
+  },
+  {
+    "id": "chapter3_card_17",
+    "chapter": 3,
+    "color": "red",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "ruse": 2,
+        "courage": 2
+      },
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "place_units",
+        "amount": 3,
+        "regions": ["enedwaith", "arnor"],
+        "choose": 1
+      }
+    ]
+  },
+  {
+    "id": "chapter3_card_18",
+    "chapter": 3,
+    "color": "purple",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "ruse": 1,
+        "strength": 1,
+        "courage": 1,
+        "knowledge": 1
+      },
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "opponent_loses_coins",
+        "amount": 1
+      },
+      {
+        "type": "move_units",
+        "amount": 1
+      },
+      {
+        "type": "move_units",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "id": "chapter3_card_19",
+    "chapter": 3,
+    "color": "purple",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "courage": 3,
+        "leadership": 1
+      },
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "remove_enemy_units",
+        "amount": 1
+      },
+      {
+        "type": "opponent_loses_coins",
+        "amount": 1
+      },
+      {
+        "type": "opponent_loses_coins",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "id": "chapter3_card_20",
+    "chapter": 3,
+    "color": "purple",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "strength": 1,
+        "courage": 1,
+        "leadership": 2
+      },
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "remove_enemy_units",
+        "amount": 1
+      },
+      {
+        "type": "remove_enemy_units",
+        "amount": 1
+      },
+      {
+        "type": "opponent_loses_coins",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "id": "chapter3_card_21",
+    "chapter": 3,
+    "color": "purple",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "strength": 3,
+        "knowledge": 1
+      },
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "remove_enemy_units",
+        "amount": 1
+      },
+      {
+        "type": "move_units",
+        "amount": 1
+      },
+      {
+        "type": "move_units",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "id": "chapter3_card_22",
+    "chapter": 3,
+    "color": "purple",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "strength": 2,
+        "leadership": 1
+      },
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "remove_enemy_units",
+        "amount": 1
+      },
+      {
+        "type": "opponent_loses_coins",
+        "amount": 1
+      },
+      {
+        "type": "move_units",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "id": "chapter3_card_23",
+    "chapter": 3,
+    "color": "purple",
+    "cost": {
+      "coins": 0,
+      "skills": {
+        "courage": 2,
+        "leadership": 1,
+        "knowledge": 1
+      },
+      "chain": null
+    },
+    "provides_chain": null,
+    "provides": {
+      "skills": {},
+      "race": null
+    },
+    "effects": [
+      {
+        "type": "move_units",
+        "amount": 1
+      },
+      {
+        "type": "move_units",
+        "amount": 1
+      },
+      {
+        "type": "move_units",
+        "amount": 1
+      }
+    ]
+  }
+]

@@ -1,0 +1,139 @@
+[
+  {
+    "id": "helms_deep",
+    "name": "Helm's Deep",
+    "cost": {
+      "coins_per_existing_fortress": 1,
+      "skills": { "ruse": 3, "leadership": 2, "knowledge": 1 }
+    },
+    "region": "rohan",
+    "effects": [
+      { "type": "place_fortress", "location": "rohan" },
+      {
+        "type": "place_units",
+        "amount": 3,
+        "regions": ["rohan"],
+        "choose": 1
+      }
+    ]
+  },
+  {
+    "id": "erebor",
+    "name": "Erebor",
+    "cost": {
+      "coins_per_existing_fortress": 1,
+      "skills": {
+        "ruse": 1,
+        "strength": 2,
+        "courage": 1,
+        "leadership": 1,
+        "knowledge": 1
+      }
+    },
+    "region": "rhovanion",
+    "effects": [
+      { "type": "place_fortress", "location": "rhovanion" },
+      {
+        "type": "gain_coins",
+        "amount": 5
+      },
+      {
+        "type": "move_units",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "id": "bree",
+    "name": "Bree",
+    "cost": {
+      "coins_per_existing_fortress": 1,
+      "skills": { "strength": 3, "courage": 2, "leadership": 1 }
+    },
+    "region": "arnor",
+    "effects": [
+      { "type": "place_fortress", "location": "arnor" },
+      {
+        "type": "place_units",
+        "amount": 2,
+        "regions": ["arnor"],
+        "choose": 1
+      },
+      {
+        "type": "move_units",
+        "amount": 1
+      },
+      {
+        "type": "move_units",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "id": "grey_havens",
+    "name": "Grey Havens",
+    "cost": {
+      "coins_per_existing_fortress": 1,
+      "skills": { "strength": 3, "leadership": 2, "knowledge": 1 }
+    },
+    "region": "lindon",
+    "effects": [
+      { "type": "place_fortress", "location": "lindon" },
+      { "type": "two_of_any_one_race_tokens" }
+    ]
+  },
+  {
+    "id": "minas_tirith",
+    "name": "Minas Tirith",
+    "cost": {
+      "coins_per_existing_fortress": 1,
+      "skills": { "ruse": 3, "strength": 1, "knowledge": 2 }
+    },
+    "region": "gondor",
+    "effects": [
+      { "type": "place_fortress", "location": "gondor" },
+      {
+        "type": "place_units",
+        "amount": 1,
+        "regions": ["gondor"],
+        "choose": 1
+      },
+      {
+        "type": "advance_quest",
+        "spaces": 2
+      }
+    ]
+  },
+  {
+    "id": "isengard",
+    "name": "Isengard",
+    "cost": {
+      "coins_per_existing_fortress": 1,
+      "skills": { "ruse": 2, "courage": 3, "knowledge": 1 }
+    },
+    "region": "enedwaith",
+    "effects": [
+      { "type": "place_fortress", "location": "enedwaith" },
+      { "type": "discard_one_grey_card_from_opponent" },
+      {
+        "type": "advance_quest",
+        "spaces": 1
+      }
+    ]
+  },
+  {
+    "id": "barad_dur",
+    "name": "Barad-Dûr",
+    "cost": {
+      "coins_per_existing_fortress": 1,
+      "skills": { "strength": 3, "leadership": 2, "knowledge": 1 }
+    },
+    "region": "mordor",
+    "effects": [
+      { "type": "place_fortress", "location": "mordor" },
+      {
+        "type": "play_one_card_from_discard_for_free"
+      }
+    ]
+  }
+]
