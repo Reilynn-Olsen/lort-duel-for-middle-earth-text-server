@@ -52,19 +52,19 @@ const CHAPTER_THREE_COVERS: &[&[usize]] = &[
     &[5, 6],
     &[6, 7],
     &[7, 8],
-    &[9, 10],
-    &[10, 11],
-    &[11, 12],
-    &[12, 13],
-    &[14],
-    &[14, 15],
+    &[],
+    &[9],
+    &[10],
+    &[],
+    &[12],
+    &[13],
+    &[15],
     &[15, 16],
     &[16, 17],
     &[17],
-    &[],
     &[18],
+    &[18, 19],
     &[19],
-    &[],
     &[],
     &[],
 ];
@@ -98,13 +98,14 @@ fn official_layouts_have_exact_rows_visibility_and_covering_relationships() {
         ),
         (
             3,
-            &[2, 3, 4, 5, 4, 2][..],
+            &[2, 3, 4, 2, 4, 3, 2][..],
             &[
                 CardVisibility::FaceUp,
                 CardVisibility::FaceDown,
                 CardVisibility::FaceUp,
                 CardVisibility::FaceDown,
                 CardVisibility::FaceUp,
+                CardVisibility::FaceDown,
                 CardVisibility::FaceUp,
             ][..],
             CHAPTER_THREE_COVERS,
@@ -321,7 +322,7 @@ fn extra_turns_apply_on_normal_and_boundary_turns_and_can_overlap() {
     );
 
     // Elf's Yellow-card reward and the Human quest movement can both grant an
-    // extra turn when that movement reaches the position-9 bonus.
+    // extra turn when that movement reaches the position-10 bonus.
     let mut overlapping = Game::new(0);
     overlapping.sauron.alliance_tokens.extend([
         AllianceToken {
@@ -333,8 +334,8 @@ fn extra_turns_apply_on_normal_and_boundary_turns_and_can_overlap() {
             id: 1,
         },
     ]);
-    overlapping.quest.sauron_position = 8;
-    overlapping.quest.fellowship_position = 15;
+    overlapping.quest.sauron_position = 9;
+    overlapping.quest.fellowship_position = 12;
     overlapping.pending_decision = Some(PendingDecision::CardDisposition { card: yellow });
     overlapping.apply(Action::PlaySelectedCard).unwrap();
     assert_eq!(

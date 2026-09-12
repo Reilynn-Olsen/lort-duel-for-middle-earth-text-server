@@ -6,7 +6,7 @@ use crate::*;
 #[test]
 fn chapter_two_and_three_layouts_have_printed_row_shapes_and_unique_cards() {
     let mut rng = DeterministicRng::new(7);
-    for (chapter, rows) in [(2, vec![6, 5, 4, 3, 2]), (3, vec![2, 3, 4, 5, 4, 2])] {
+    for (chapter, rows) in [(2, vec![6, 5, 4, 3, 2]), (3, vec![2, 3, 4, 2, 4, 3, 2])] {
         let state = setup_chapter(chapter, &mut rng);
         assert_eq!(
             (0..rows.len())
@@ -215,14 +215,10 @@ fn source_backed_board_quest_landmark_and_alliance_catalogues_are_complete() {
             .map(|bonus| (bonus.position, bonus.effect))
             .collect::<Vec<_>>(),
         vec![
-            (3, QuestBonusEffect::GainCoin),
-            (6, QuestBonusEffect::PlaceUnit),
-            (9, QuestBonusEffect::TakeExtraTurn),
-            (12, QuestBonusEffect::RemoveEnemyFortress),
-            (18, QuestBonusEffect::GainCoin),
-            (21, QuestBonusEffect::PlaceUnit),
-            (24, QuestBonusEffect::TakeExtraTurn),
-            (27, QuestBonusEffect::RemoveEnemyFortress)
+            (4, QuestBonusEffect::GainCoin),
+            (7, QuestBonusEffect::PlaceUnit),
+            (10, QuestBonusEffect::TakeExtraTurn),
+            (13, QuestBonusEffect::RemoveEnemyFortress)
         ]
     );
 

@@ -337,8 +337,8 @@ mod tests {
             )
             .units(Faction::Fellowship, Region::Lindon, 3)
             .fortress(Faction::Sauron, Region::Gondor)
-            .quest_positions(19, 4)
-            .claimed_bonus(18)
+            .quest_positions(8, 4)
+            .claimed_bonus(7)
             .display([card(2, 1)])
             .landmarks(["helms_deep"])
             .build();
@@ -362,13 +362,13 @@ mod tests {
         assert_eq!(game.map[5].fortress, Some(Faction::Sauron));
         assert_eq!(
             (game.quest.fellowship_position, game.quest.sauron_position),
-            (19, 4)
+            (8, 4)
         );
         assert!(
             game.quest
                 .bonuses
                 .iter()
-                .find(|bonus| bonus.position == 18)
+                .find(|bonus| bonus.position == 7)
                 .unwrap()
                 .claimed
         );

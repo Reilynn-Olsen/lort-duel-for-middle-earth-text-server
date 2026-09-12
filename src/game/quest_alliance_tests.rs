@@ -25,16 +25,16 @@ fn resolve_token(game: &mut Game, token: AllianceToken) {
 #[test]
 fn quest_movement_crossings_choices_and_boundaries_are_exact() {
     let mut fellowship = Game::new(0);
-    fellowship.quest.fellowship_position = 20;
-    fellowship.quest.sauron_position = 5;
-    fellowship.advance_quest(Faction::Fellowship, 4);
+    fellowship.quest.fellowship_position = 6;
+    fellowship.quest.sauron_position = 2;
+    fellowship.advance_quest(Faction::Fellowship, 7);
     fellowship.resolve_effects();
     assert_eq!(
         (
             fellowship.quest.fellowship_position,
             fellowship.quest.sauron_position
         ),
-        (24, 9)
+        (13, 2)
     );
     assert!(matches!(
         fellowship.pending_decision,
@@ -58,25 +58,25 @@ fn quest_movement_crossings_choices_and_boundaries_are_exact() {
             .quest
             .bonuses
             .iter()
-            .filter(|bonus| [21, 24].contains(&bonus.position))
+            .filter(|bonus| [7, 10, 13].contains(&bonus.position))
             .all(|bonus| bonus.claimed)
     );
 
     let mut sauron = Game::new(0);
-    sauron.quest.fellowship_position = 20;
-    sauron.quest.sauron_position = 18;
+    sauron.quest.fellowship_position = 2;
+    sauron.quest.sauron_position = 13;
     sauron.advance_quest(Faction::Sauron, 1);
     assert!(!sauron.is_over());
     sauron.advance_quest(Faction::Sauron, 1);
     assert_eq!(sauron.winner(), Some(Faction::Sauron));
 
-    let mut mount_doom = Game::new(0);
-    mount_doom.quest.fellowship_position = 28;
-    mount_doom.quest.sauron_position = 10;
-    mount_doom.advance_quest(Faction::Fellowship, 1);
-    assert!(!mount_doom.is_over());
-    mount_doom.advance_quest(Faction::Fellowship, 1);
-    assert_eq!(mount_doom.winner(), Some(Faction::Fellowship));
+    let mut fellowship_win = Game::new(0);
+    fellowship_win.quest.fellowship_position = 13;
+    fellowship_win.quest.sauron_position = 2;
+    fellowship_win.advance_quest(Faction::Fellowship, 1);
+    assert!(!fellowship_win.is_over());
+    fellowship_win.advance_quest(Faction::Fellowship, 1);
+    assert_eq!(fellowship_win.winner(), Some(Faction::Fellowship));
 }
 
 #[test]

@@ -1,7 +1,7 @@
 use crate::catalog::{card_definition, setup_chapter};
 use crate::{
-    Action, AllianceTrigger, CardVisibility, Faction, RACES, REGIONS, Race, Region, VictoryType,
-    alliance_schema,
+    Action, AllianceTrigger, CardVisibility, Faction, QUEST_VICTORY_POSITION, RACES, REGIONS, Race,
+    Region, VictoryType, alliance_schema,
 };
 
 use super::{Effect, Game};
@@ -233,20 +233,18 @@ impl Game {
         let old_sauron = self.quest.sauron_position;
         match player {
             Faction::Fellowship => {
-                self.quest.fellowship_position = (old_fellowship + spaces).min(30);
-                // The Nazgûl follows the Fellowship marker, preserving their
-                // current separation instead of allowing it to grow.
-                self.quest.sauron_position = (old_sauron + spaces).min(30);
+                self.quest.fellowship_position =
+                    (old_fellowship + spaces).min(QUEST_VICTORY_POSITION);
             }
             Faction::Sauron => {
-                self.quest.sauron_position = (old_sauron + spaces).min(old_fellowship);
+                self.quest.sauron_position = (old_sauron + spaces).min(QUEST_VICTORY_POSITION);
             }
         }
-        if self.quest.fellowship_position == 30 {
+        if self.quest.fellowship_position == QUEST_VICTORY_POSITION {
             self.record_victory(Faction::Fellowship, VictoryType::Quest);
             return;
         }
-        if self.quest.sauron_position >= self.quest.fellowship_position {
+        if self.quest.sauron_position == QUEST_VICTORY_POSITION {
             self.record_victory(Faction::Sauron, VictoryType::Quest);
             return;
         }

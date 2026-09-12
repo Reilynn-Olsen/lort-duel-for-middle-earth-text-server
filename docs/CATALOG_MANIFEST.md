@@ -34,8 +34,8 @@ quantity in `cards.json`.
 ## Source-Confirmed Content
 
 - Chapter display geometry and face-up/face-down rows: Rulebook p. 3.
-- Quest spaces: 3 coin, 6 Unit, 9 extra turn, 12 remove Fortress, then 18 coin,
-  21 Unit, 24 extra turn, and 27 remove Fortress: Rulebook p. 6 and Player Aid p. 1.
+- Quest spaces: 4 coin, 7 Unit, 10 extra turn, and 13 remove Fortress. Both factions
+  race independently to 15 quest progress.
 - Landmark names, regions, and effects: Player Aid p. 1.
 - Alliance-token effects: Player Aid p. 2.
 - Region names and printed connections: Rulebook p. 7.

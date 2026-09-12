@@ -1,5 +1,8 @@
 use crate::catalog::{card_definition, landmark_definition};
-use crate::{CardVisibility, Faction, PendingDecision, PlayerState, alliance_token_description};
+use crate::{
+    CardVisibility, Faction, PendingDecision, PlayerState, QUEST_VICTORY_POSITION,
+    alliance_token_description,
+};
 
 use super::Game;
 
@@ -68,11 +71,12 @@ impl Game {
                     .map(|card| {
                         let definition = card_definition(*card);
                         format!(
-                            "{card}({:?}; skills={:?}; any_of={:?}; race={:?}; chain={:?})",
+                            "{card}({:?}; skills={:?}; any_of={:?}; race={:?}; effects={:?}; chain={:?})",
                             definition.color,
                             definition.provides.skills,
                             definition.provides.skills_any_of,
                             definition.provides.race,
+                            definition.effects,
                             definition.provides_chain
                         )
                     })
@@ -186,7 +190,7 @@ impl Game {
             "in progress".into()
         };
         format!(
-            "game\nturn: {}\nactive_player: {}\ncurrent_chapter: {}\noutcome: {}\nplayers: Fellowship={}, Sauron={}\ncoins: Fellowship={}, Sauron={}, reserve={}\ntableaus: Fellowship=[{}], Sauron=[{}]\nalliance_tokens: Fellowship=[{}], Sauron=[{}]\nunits_in_supply: Fellowship={}, Sauron={}\nquest: Nazgul={}, Frodo_and_Sam={}\nquest_bonuses: {}\nlandmarks: available={:?}, facedown_remaining={}\nalliance_stacks:\n{}\nmap:\n{}\nchapter_layout:\n{}{}",
+            "game\nturn: {}\nactive_player: {}\ncurrent_chapter: {}\noutcome: {}\nplayers: Fellowship={}, Sauron={}\ncoins: Fellowship={}, Sauron={}, reserve={}\ntableaus: Fellowship=[{}], Sauron=[{}]\nalliance_tokens: Fellowship=[{}], Sauron=[{}]\nunits_in_supply: Fellowship={}, Sauron={}\nquest (first to {}): Nazgul={}, Frodo_and_Sam={}\nquest_bonuses: {}\nlandmarks: available={:?}, facedown_remaining={}\nalliance_stacks:\n{}\nmap:\n{}\nchapter_layout:\n{}{}",
             self.turn,
             self.active_player,
             self.current_chapter,
@@ -202,6 +206,7 @@ impl Game {
             alliance_tokens(&self.sauron),
             self.fellowship.units_in_supply,
             self.sauron.units_in_supply,
+            QUEST_VICTORY_POSITION,
             self.quest.sauron_position,
             self.quest.fellowship_position,
             quest_bonuses,

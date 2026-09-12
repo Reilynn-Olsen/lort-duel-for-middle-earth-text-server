@@ -180,8 +180,8 @@ fn a_short_alliance_stack_reveals_only_its_remaining_token() {
 #[test]
 fn quest_bonus_can_be_explicitly_declined() {
     let mut game = Game::new(0);
-    game.quest.fellowship_position = 20;
-    game.quest.sauron_position = 5;
+    game.quest.fellowship_position = 9;
+    game.quest.sauron_position = 2;
     game.advance_quest(Faction::Fellowship, 1);
     game.resolve_effects();
 

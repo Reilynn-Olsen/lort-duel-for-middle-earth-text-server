@@ -177,7 +177,7 @@ impl Game {
                 })
                 .collect(),
             quest: QuestTrack {
-                fellowship_position: 15,
+                fellowship_position: 0,
                 sauron_position: 0,
                 bonuses: quest_bonuses(),
             },

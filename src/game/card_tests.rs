@@ -89,26 +89,22 @@ fn matching_chain_makes_the_entire_card_free_including_printed_coins() {
     assert!(game.sauron.tableau.contains(&chained_card));
 }
 #[test]
-fn fellowship_quest_movement_preserves_the_existing_separation_and_claims_crossed_bonuses() {
+fn fellowship_quest_movement_advances_only_its_own_progress_and_claims_crossed_bonuses() {
     let mut game = Game::new(0);
-    game.advance_quest(Faction::Fellowship, 3);
+    game.advance_quest(Faction::Fellowship, 4);
     game.resolve_effects();
     while game.legal_actions().contains(&Action::AcceptQuestBonus) {
         game.apply(Action::AcceptQuestBonus).unwrap();
     }
-    assert_eq!(game.quest.fellowship_position, 18);
-    assert_eq!(game.quest.sauron_position, 3);
-    assert_eq!(
-        game.quest.fellowship_position - game.quest.sauron_position,
-        15
-    );
-    // Both moved characters crossed a one-time coin space: 3 and 18.
-    assert_eq!(game.fellowship.coins, 5);
+    assert_eq!(game.quest.fellowship_position, 4);
+    assert_eq!(game.quest.sauron_position, 0);
+    // Fellowship crossed the first one-time coin space.
+    assert_eq!(game.fellowship.coins, 4);
     assert!(
         game.quest
             .bonuses
             .iter()
-            .filter(|bonus| bonus.position == 3 || bonus.position == 18)
+            .filter(|bonus| bonus.position == 4)
             .all(|bonus| bonus.claimed)
     );
 }
@@ -127,15 +123,15 @@ fn playing_a_blue_card_routes_quest_movement_through_the_effect_queue() {
         .retain(|discarded| *discarded != card);
     game.pending_decision = Some(PendingDecision::CardDisposition { card });
     game.apply(Action::PlaySelectedCard).unwrap();
-    assert_eq!(game.quest.fellowship_position, 16);
-    assert_eq!(game.quest.sauron_position, 1);
+    assert_eq!(game.quest.fellowship_position, 1);
+    assert_eq!(game.quest.sauron_position, 0);
     assert_eq!(game.active_player(), Faction::Sauron);
 }
 #[test]
 fn quest_bonus_unit_placement_is_an_explicit_choice_and_is_claimed_once() {
     let mut game = Game::new(0);
-    game.quest.fellowship_position = 20;
-    game.quest.sauron_position = 5;
+    game.quest.fellowship_position = 6;
+    game.quest.sauron_position = 2;
     game.advance_quest(Faction::Fellowship, 1);
     game.resolve_effects();
     assert!(matches!(
@@ -161,24 +157,24 @@ fn quest_bonus_unit_placement_is_an_explicit_choice_and_is_claimed_once() {
         game.quest
             .bonuses
             .iter()
-            .find(|bonus| bonus.position == 21)
+            .find(|bonus| bonus.position == 7)
             .unwrap()
             .claimed
     );
 }
 #[test]
-fn quest_reaching_mount_doom_or_catching_the_fellowship_ends_the_game_immediately() {
+fn quest_reaching_fifteen_ends_the_game_immediately() {
     let mut fellowship_win = Game::new(0);
-    fellowship_win.quest.fellowship_position = 29;
-    fellowship_win.quest.sauron_position = 10;
+    fellowship_win.quest.fellowship_position = 14;
+    fellowship_win.quest.sauron_position = 2;
     fellowship_win.advance_quest(Faction::Fellowship, 1);
     assert_eq!(fellowship_win.winner(), Some(Faction::Fellowship));
     assert_eq!(fellowship_win.victory_type(), Some(VictoryType::Quest));
 
     let mut sauron_win = Game::new(0);
-    sauron_win.quest.fellowship_position = 20;
-    sauron_win.quest.sauron_position = 18;
-    sauron_win.advance_quest(Faction::Sauron, 2);
+    sauron_win.quest.fellowship_position = 2;
+    sauron_win.quest.sauron_position = 14;
+    sauron_win.advance_quest(Faction::Sauron, 1);
     assert_eq!(sauron_win.winner(), Some(Faction::Sauron));
     assert_eq!(sauron_win.victory_type(), Some(VictoryType::Quest));
 }

@@ -11,14 +11,10 @@ pub(crate) fn alliance_token_description(token: AllianceToken) -> &'static str {
 pub(crate) fn quest_bonuses() -> Vec<QuestBonus> {
     use QuestBonusEffect::*;
     [
-        (3, GainCoin),
-        (6, PlaceUnit),
-        (9, TakeExtraTurn),
-        (12, RemoveEnemyFortress),
-        (18, GainCoin),
-        (21, PlaceUnit),
-        (24, TakeExtraTurn),
-        (27, RemoveEnemyFortress),
+        (4, GainCoin),
+        (7, PlaceUnit),
+        (10, TakeExtraTurn),
+        (13, RemoveEnemyFortress),
     ]
     .into_iter()
     .map(|(position, effect)| QuestBonus {

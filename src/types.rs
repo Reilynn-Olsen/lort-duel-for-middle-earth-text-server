@@ -3,6 +3,7 @@ use std::fmt;
 use crate::card_schema;
 
 pub const TOTAL_COINS: u8 = 30;
+pub const QUEST_VICTORY_POSITION: u8 = 15;
 pub const CARDS_PER_CHAPTER: usize = 23;
 pub const CARDS_IN_LAYOUT: usize = 20;
 pub const REGIONS: [Region; 7] = [
@@ -221,7 +222,7 @@ pub struct PlayerState {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct QuestTrack {
-    /// Positions count from the Nazgûl's start (0) to Mount Doom (30).
+    /// Each faction advances independently from 0 to the quest victory position.
     pub fellowship_position: u8,
     pub sauron_position: u8,
     pub bonuses: Vec<QuestBonus>,
