@@ -7,6 +7,22 @@ use crate::{ChapterCard, Faction, alliance_schema, card_schema};
 use super::Game;
 
 impl Game {
+    pub(super) fn discard_income_for(&self, player: Faction) -> u8 {
+        self.current_chapter
+            * self
+                .player(player)
+                .alliance_tokens
+                .iter()
+                .flat_map(|token| alliance_token_definition(*token).persistent.iter())
+                .filter_map(|effect| match effect {
+                    alliance_schema::PersistentEffect::DiscardIncomeMultiplier { multiplier } => {
+                        Some(*multiplier)
+                    }
+                    _ => None,
+                })
+                .max()
+                .unwrap_or(1)
+    }
     pub(super) fn can_use_any_skill(&self, player: Faction) -> bool {
         self.has_persistent(player, |effect| {
             matches!(

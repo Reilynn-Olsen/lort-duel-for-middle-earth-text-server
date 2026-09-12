@@ -37,7 +37,7 @@ cargo run --bin random_game -- 42 100
 
 The optional arguments are the setup seed (default `0`) and maximum number of actions (default `500`). Reusing the same seed and action choices reproduces the same game.
 
-## Text Server
+## Rules Server
 
 Start a local process that manages one in-memory game:
 
@@ -69,6 +69,16 @@ Supported commands:
 Action numbers are zero-based and valid only for the state that returned them. Clients must use the `actions:` section as the authoritative set of possible moves rather than deriving moves from displayed state.
 
 Read the [server integration guide](docs/SERVER_API.md) for the full framing protocol, error behavior, browser-backend architecture, and agent integration guidance.
+
+For versioned machine integration, start the separate JSON-lines protocol:
+
+```sh
+cargo run --bin rules_server -- --jsonl
+```
+
+Send one JSON request per line and read one JSON response per line. See the
+[JSONL protocol](docs/SERVER_API.md#json-lines-protocol-version-1); the legacy
+text protocol remains the default and is unchanged.
 
 ## Library Usage
 

@@ -24,6 +24,27 @@ const CHAPTER_ONE_COVERS: &[&[usize]] = &[
     &[],
     &[],
 ];
+
+#[test]
+fn every_issued_action_has_a_self_contained_description() {
+    let mut game = Game::new(42);
+    for _ in 0..150 {
+        let player = game.active_player();
+        let actions = game.legal_actions_for(player);
+        if actions.is_empty() {
+            break;
+        }
+        for action in &actions {
+            let description = game.describe_action(action);
+            assert!(description.contains("Immediate result:"));
+            assert!(description.len() > action.to_string().len());
+        }
+        game.apply_for(player, actions[0].clone()).unwrap();
+        if game.is_over() {
+            break;
+        }
+    }
+}
 const CHAPTER_TWO_COVERS: &[&[usize]] = &[
     &[6],
     &[6, 7],

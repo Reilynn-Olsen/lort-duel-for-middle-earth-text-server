@@ -1,7 +1,6 @@
-use crate::catalog::alliance_token_definition;
 use crate::{
     Action, AllianceToken, AllianceTrigger, ChapterCard, EntManeuver, Faction, PendingDecision,
-    QuestBonusEffect, Race, Region, alliance_schema,
+    QuestBonusEffect, Race, Region,
 };
 
 use super::{Effect, Game};
@@ -16,20 +15,7 @@ impl Game {
             unreachable!("validated card disposition action")
         };
         self.discard_card(card);
-        let income = self.current_chapter
-            * self
-                .player(self.active_player)
-                .alliance_tokens
-                .iter()
-                .flat_map(|token| alliance_token_definition(*token).persistent.iter())
-                .filter_map(|effect| match effect {
-                    alliance_schema::PersistentEffect::DiscardIncomeMultiplier { multiplier } => {
-                        Some(*multiplier)
-                    }
-                    _ => None,
-                })
-                .max()
-                .unwrap_or(1);
+        let income = self.discard_income_for(self.active_player);
         self.gain_coins(self.active_player, income);
         self.queue_turn_completion();
         self.resolve_effects();

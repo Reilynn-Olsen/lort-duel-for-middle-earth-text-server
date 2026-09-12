@@ -3,7 +3,13 @@
 `rules_server` is a local, line-oriented process for a single game. It is
 intended for a browser backend, desktop app, CLI client, or automated/LLM
 player. It does not expose HTTP, WebSockets, JSON, authentication, persistence,
-or matchmaking.
+or matchmaking. For evaluation clients, use its versioned JSON-lines mode:
+`cargo run --bin rules_server -- --jsonl`. The adjacent Rust project's
+`docs/SERVER_API.md` is the authoritative protocol reference.
+
+The default is the legacy text protocol described below. Pass `--jsonl` to use
+the versioned JSON-lines protocol; the two formats are separate and must not be
+mixed in one process.
 
 ## Start A Server
 
@@ -167,5 +173,42 @@ identical seed.
 ## Current Scope
 
 The server is a development integration boundary. It has no network service,
-accounts, rate limiting, save/load command, structured payloads, or protocol
-version field. Keep it behind a trusted adapter if building a multi-user app.
+accounts, rate limiting, or save/load command. Keep it behind a trusted adapter
+if building a multi-user app.
+
+## JSON-Lines Protocol Version 1
+
+Start it with `cargo run --bin rules_server -- --jsonl`. Each UTF-8 input line
+is one JSON object and produces exactly one JSON object on standard output; no
+`.` framing line is used. Every request contains `protocolVersion: 1`, a client
+chosen `requestId`, and a `type` of `hello`, `new`, `state`, or `choose`.
+
+`hello` advertises the supported version and capabilities. `new` accepts an
+optional unsigned `seed` and returns a new `gameId` at `stateRevision: 0`.
+`state` requires `gameId` and lowercase `faction`. `choose` requires `gameId`,
+`stateRevision`, `turn`, `stateHash`, `faction`, and an `actionId` from `legalActions` in a `state`
+or successful `choose` response for that exact revision and faction.
+
+```json
+{"protocolVersion":1,"requestId":"new-1","type":"new","seed":42}
+{"protocolVersion":1,"requestId":"state-1","type":"state","gameId":"game-1","faction":"sauron"}
+{"protocolVersion":1,"requestId":"choose-1","type":"choose","gameId":"game-1","stateRevision":0,"turn":0,"stateHash":"<hash from state response>","faction":"sauron","actionId":"r0-a0"}
+```
+
+Responses always include `protocolVersion`, `requestId` (or `null` if the
+request could not be parsed), `type`, `engineVersion`, `gameId`,
+`stateRevision`, `turn`, a SHA-256 `stateHash` of the viewer-scoped public
+`observation`, `outcome`, public `observation` text, `legalActions`, and
+`error`. Every legal action contains an opaque `actionId` and a human-readable
+`description` of its effect. Chapter-card descriptions identify the card,
+printed cost, effects, current play cost, and discard income. Submit only the
+ID: never construct or infer one.
+`winner` is present when the outcome is `winner`. Outcomes are `in_progress`,
+`winner`, `shared_victory`, and `stalled`. `stalled` means the game is not over
+but neither faction has an action according to the engine.
+
+Errors leave the game unchanged. A successful `choose` increments
+`stateRevision`, invalidates all previously issued action IDs, and returns the
+new observation and action IDs for the choosing faction. The server validates
+the ID against the game’s current legal actions and applies it through the
+authoritative `Game` API.
