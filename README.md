@@ -1,67 +1,118 @@
-# Duel for Middle-earth rules engine
+# Duel for Middle-earth Rules Engine
 
-An in-progress deterministic Rust rules engine for *The Lord of the Rings: Duel for Middle-earth*. Its boundary is deliberately text-only so automated players, including LLM harnesses, can use it without browser/UI dependencies.
+A deterministic Rust rules engine for *The Lord of the Rings: Duel for Middle-earth*. It models authoritative game state, validates player actions, and provides a text-first interface for command-line clients, application backends, and automated players.
 
-## Run the text server
+This is a rules engine, not a complete game application: it has no graphical interface, network service, matchmaking, persistence, or authentication.
+
+## Features
+
+- Deterministic setup and replay from a seed and accepted action sequence.
+- Authoritative action generation and validation through `Game`.
+- Three chapters, card layouts, costs, construction, chaining, and discard income.
+- Landmarks, alliance tokens, quest bonuses, units, map conflicts, and territorial scoring.
+- Victory checks for all implemented victory paths.
+- Hidden-information-safe text rendering for each faction.
+- A line-oriented local server for frontends and LLM/agent harnesses.
+- A deterministic random-play executable for smoke testing and replays.
+
+See [rule coverage](docs/RULE_COVERAGE.md) for tested rule groups and known limitations.
+
+## Requirements
+
+- A current Rust toolchain with Cargo (the crate uses Rust edition 2024).
+
+## Getting Started
+
+Clone the repository and run the test suite:
 
 ```sh
-cargo run --bin rules_server
+cargo test
 ```
 
-It reads one command per line and returns a response terminated by a line containing `.`. This makes multi-line responses unambiguous for a harness. Every successful game response has exactly two ordered sections: `state for <faction>:` followed by `actions:`. The action list is numbered; an agent submits the selected number with `choose <faction> <number>`.
-
-```text
-new 42
-state sauron
-choose sauron 0
-quit
-```
-
-`state <faction>` returns the complete observation (both sections), rather than only state. `legal` remains a compatibility alias. Action numbers are valid only for the most recent observation; the engine recomputes and validates them on `choose`.
-
-Current commands: `new [seed]`, `state <fellowship|sauron>`, `legal <fellowship|sauron>`, `choose <fellowship|sauron> <number>`, `help`, and `quit`. See [the server integration guide](docs/SERVER_API.md) for frontend and LLM-harness guidance.
-
-## Watch random bots
-
-Run two deterministic bots that select only engine-provided legal actions:
+Run a deterministic random game:
 
 ```sh
 cargo run --bin random_game -- 42 100
 ```
 
-The optional arguments are `seed` (default `0`) and maximum actions (default
-`500`). The output prints the acting faction, selected action, and current
-observation after every state transition. Re-run the same seed to replay it.
+The optional arguments are the setup seed (default `0`) and maximum number of actions (default `500`). Reusing the same seed and action choices reproduces the same game.
 
-## Turn-resolution model
+## Text Server
 
-The engine uses a FIFO effect queue and a `pending_decision` state. An automatic sequence runs until it ends or a player choice is needed; the action list then contains only actions that answer that choice. A chapter-card turn currently works as follows: choose an available face-up card, choose to play or discard it, then resolve effects, immediate victory checks, newly-uncovered-card reveals, post-reveal checks, and turn passing. Discard income is implemented (1/2/3 coins by chapter).
+Start a local process that manages one in-memory game:
 
-Card costs/effects, landmark costs/effects, victory checks, extra turns, and chapter transitions are the next additions. Landmark actions are intentionally not offered until their costs can be validated correctly.
+```sh
+cargo run --bin rules_server
+```
 
-## Implemented setup
+Send one UTF-8 command per line on standard input. Each reply ends with a line containing only `.`, which is the response delimiter.
 
-`new <seed>` deterministically creates the complete initial configuration:
+```text
+new 42
+state sauron
+choose sauron 0
+state fellowship
+quit
+```
 
-- Fellowship/Sauron supplies, quest characters, starting coins, units, and Sauron first turn;
-- the seven-region map and its adjacency graph;
-- Quest of the Ring positions and bonus-space locations;
-- independently shuffled three-token race stacks;
-- seven shuffled landmark placeholders, with three revealed;
-- three independently shuffled 23-card chapter decks, each with a 20-card overlapping layout and three facedown discards.
+Supported commands:
 
-The card and landmark IDs are deliberate placeholders until their official names, costs, and effects are encoded. Public text state never exposes a facedown card's identity or an unrevealed token order.
+| Command | Description |
+| --- | --- |
+| `new [seed]` | Create a game; the default seed is `0`. |
+| `state <fellowship|sauron>` | Return that faction's observation and legal actions. |
+| `legal <fellowship|sauron>` | Alias for `state`. |
+| `choose <fellowship|sauron> <number>` | Apply an action from that faction's current legal-action list. |
+| `help` | Show the command summary. |
+| `quit` | End the process. |
 
-## Architectural commitments
+Action numbers are zero-based and valid only for the state that returned them. Clients must use the `actions:` section as the authoritative set of possible moves rather than deriving moves from displayed state.
 
-- `Game` owns all authoritative state and uses a seed for reproducible setup.
-- `legal_actions` is the single source of truth for what an agent may do.
-- `apply` validates actions; clients cannot mutate state directly.
-- Rendering is separate from rules and remains plain text.
+Read the [server integration guide](docs/SERVER_API.md) for the full framing protocol, error behavior, browser-backend architecture, and agent integration guidance.
 
-## Next rules milestones
+## Library Usage
 
-1. Encode the published components/card catalogue from a verified source.
-2. Model chapter layouts, face-down information, and valid card selection.
-3. Implement resources, construction, landmarks, and the three victory paths.
-4. Add setup/action golden tests and replay fixtures before training agents.
+`Game` is the authoritative state-transition boundary. Generate actions for a faction, then submit one of those actions back to the game:
+
+```rust
+use duel_for_middle_earth_rules::{Faction, Game};
+
+let mut game = Game::new(42);
+let faction = game.active_player();
+let action = game.legal_actions_for(faction)[0].clone();
+game.apply_for(faction, action)?;
+
+assert_eq!(faction, Faction::Sauron);
+# Ok::<(), Box<dyn std::error::Error>>(())
+```
+
+Use `render_observation_for` to produce a faction-safe text observation. Clients should not mutate game state directly or construct actions outside the engine.
+
+## Project Layout
+
+| Path | Contents |
+| --- | --- |
+| `src/` | Rules engine, catalogue schemas, tests, and executables. |
+| `cards.json`, `landmark_tiles.json`, `alliance_tokens.json` | Game component catalogues. |
+| `docs/SERVER_API.md` | Text-server protocol and client integration guide. |
+| `docs/RULE_COVERAGE.md` | Implemented rule coverage and known limitations. |
+| `docs/CATALOG_MANIFEST.md` | Catalogue provenance and component inventory. |
+| `docs/rules-decisions.md` | Recorded rules interpretations and unresolved decisions. |
+| `rules.pdf`, `helpsheet.pdf` | Official game rulebook and player aid supplied with the project. |
+
+## Rule Sources And Contributions
+
+Rules accuracy, determinism, debuggability, and test coverage take priority over convenience. The official rulebook and player aid are the primary sources of truth; do not infer rules from the original *7 Wonders Duel*.
+
+Before changing rules behavior, review `agents.md`, the relevant tests and data catalogue, and any applicable entries in [rules decisions](docs/rules-decisions.md). Document unresolved ambiguities instead of guessing.
+
+## Limitations
+
+- The text server is a local development boundary, not an HTTP or WebSocket service.
+- Games live only in memory. To replay a session, retain the seed and accepted `choose` commands and use the same engine version.
+- The text observation is designed for people and language models, not as a versioned typed API. Add a separate structured protocol for production clients that need stable fields.
+- Known rule-edge limitations are documented in [rule coverage](docs/RULE_COVERAGE.md).
+
+## Acknowledgments
+
+*The Lord of the Rings: Duel for Middle-earth* is a game by Antoine Bauza and Bruno Cathala, published by Repos Production. This repository is an independent, unofficial rules-engine project and is not affiliated with or endorsed by the game's designers or publisher.
